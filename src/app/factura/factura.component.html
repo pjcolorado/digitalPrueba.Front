@@ -1,0 +1,30 @@
+<h1>Factura</h1>
+<app-cliente></app-cliente>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-6">
+            <div class="form-group">
+                <label for="name">Cliente</label>
+                <input type="text" class="form-control" [(ngModel)]="myfactura.id">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-6">
+            <div class="form-group">
+                <label for="email">Fecha</label>
+                <input type="date" class="form-control" [(ngModel)]="myfactura.fecha">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <app-factura-detalle></app-factura-detalle>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <button (click)="limpiar()" >Cancelar</button>
+        <button (click)="addFactura()" class="primary">Guardar</button>
+    </div>
+</div>

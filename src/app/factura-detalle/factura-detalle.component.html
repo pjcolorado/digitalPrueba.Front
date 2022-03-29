@@ -1,0 +1,71 @@
+<h2>Factura</h2>
+<div class="container">
+    <div class="row">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-6">
+            <div class="form-group">
+                <label for="name">Cliente</label>
+                <input type="text" class="form-control" [(ngModel)]="myfactura.id">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-6">
+            <div class="form-group">
+                <label for="email">Fecha</label>
+                <input type="date" class="form-control" [(ngModel)]="myfactura.fecha">
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Detalles</h2>
+<form [formGroup]="detallesForm" (ngSubmit)="addDetalle()">
+    <div class="col-xs-12 col-sm-10 col-md-6">
+        <div class="form-group">
+            <label for="name">Producto</label>
+            <input type="text" class="form-control" formControlName="idProducto">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-10 col-md-6"></div>
+    <div class="form-group">
+        <label for="name">Cantidad</label>
+        <input type="text" class="form-control" formControlName="cantidad">
+    </div>
+    <div class="col-xs-12 col-sm-10 col-md-6">
+        <div class="form-group">
+            <label for="name">Valor unitario</label>
+            <input type="text" class="form-control" formControlName="valorUnitario">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-10 col-md-6">
+        <div class="form-group">
+            <label for="name">Valor total</label>
+            <input type="text" class="form-control" formControlName="valorTotal">
+        </div>
+    </div>
+    <div>
+        <button type="submit">Agregar</button>
+    </div>
+</form>
+<div>
+    <h2>Items</h2>
+    <table style="width: 50%">
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>valorUnitario</th>
+            <th>valorTotal</th>
+        </tr>
+        <tr *ngFor="let item of myDetalles">
+            <td>{{ item.idProducto }}</td>
+            <td>{{ item.cantidad }}</td>
+            <td>{{ item.valorUnitario }}</td>
+            <td>{{ item.valorTotal }}</td>
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <button (click)="limpiar()">Cancelar</button>
+        <button (click)="addFactura()" class="primary">Guardar</button>
+    </div>
+</div>
